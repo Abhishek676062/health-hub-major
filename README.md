@@ -55,7 +55,7 @@ Access the Chatbot:
 
 ## File Structure
 
--├── static/ # Static assets (e.g., CSS, JavaScript)
+-├── static/ answer.mp3
 
 -├── templates/ # HTML templates
 
