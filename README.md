@@ -1,4 +1,4 @@
-HealthHub Medical Chatbot
+# HealthHub Medical Chatbot
 ## Overview
 The HealthHub Medical Chatbot is an innovative tool designed to provide immediate, personalized health advice and support using artificial intelligence (AI) technology. It offers users 24/7 access to medical information and guidance, covering a wide range of health services from symptom checking to mental health support.
 
@@ -27,13 +27,13 @@ To set up and run the HealthHub Medical Chatbot on your local machine, follow th
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/healthhub.git
+    git clone https://github.com/Abhishek676062/health-hub-major.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd healthhub
+    cd health-hub-major
  
     ```
 3. Install Dependencies:
@@ -42,14 +42,22 @@ To set up and run the HealthHub Medical Chatbot on your local machine, follow th
     pip install -r requrement.txt
  
    ```
-
-4. Run the application:
+   
+4. Also  Genrate a Google Serp API:
+   To run this application you need a serp api key . so genrate google serp api key you simply goes to
+   
+   ```bash
+    https://serpapi.com/dashboard
+   ```
+   And copy the the serp  api key and paste in app.py. then
+   
+6. Run the application:
 
     ```bash
     python app.py
     ```
 
-Access the Chatbot:
+   Access the Chatbot:
 
 5. Open your web browser and go to [http://localhost:5000](http://localhost:5000) to access the application.
 
