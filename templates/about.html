@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our HealthHub Chatbot</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1A1A1A;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px;
+            background-image: #1A1A1A;
+            color: white;
+        }
+        .section {
+            padding: 40px;
+            text-align: center;
+            background-color: #D3D3D3;
+        }
+        .section:nth-child(even) {
+            background-color: #fff;
+            background-color: #D3D3D3;
+        }
+        .section:nth-child(odd) {
+            background-color: #D3D3D3;
+        }
+        .animated {
+            opacity: 0;
+            position: relative;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+            animation-name: slideUp;
+            animation-delay: 0.5s;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                bottom: -20px;
+            }
+            to {
+                opacity: 1;
+                bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="http://127.0.0.1:5000/">Home</a>
+        <a href="http://127.0.0.1:5500/templates/about.html">About Us</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSctSWzu84PbTmro0wBsbw1B3jcLI7UmvKB9qDKkw-taEIdESA/viewform">Book an Appointment</a>
+    </div>
+
+<div class="header" id="home">
+    <h1>About Our HealthHub Chatbot</h1>
+    <p>Learn more about how we're revolutionizing healthcare</p>
+</div>
+
+<div class="section" id="about">
+        <h2>What is Our HealthHub Chatbot?</h2>
+        <p>Our Health Chatbot is an innovative tool designed to provide immediate, personalized health advice and support. Utilizing the latest in AI technology, it offers users 24/7 access to medical information and guidance.</p>
+        <div class="section" id="services">
+            <h2>Our Services</h2>
+            <p>From symptom checking to providing mental health support, our chatbot covers a wide range of health services to ensure you receive the care you need, when you need it.</p>
+    
+    
+
+<div class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or feedback? We'd love to hear from you. Reach out to us through our official channels to get the support you need.</p>
+</div>
+        </div>
+
+    </div>
+
+
+
+<script>
+window.addEventListener('scroll', reveal);
+
+function reveal() {
+    var reveals = document.querySelectorAll('.animated');
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].style.opacity = "1";
+            reveals[i].style.transform = "translateY(0)";
+        } else {
+            reveals[i].style.opacity = "0";
+            reveals[i].style.transform = "translateY(20px)";
+        }
+    }
+}
+
+reveal();
+</script>
+
+</body>
+</html>

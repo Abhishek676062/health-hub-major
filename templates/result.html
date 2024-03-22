@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0A0A0A;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            padding-top: 60px; /* Make space for the fixed navbar */
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1A1A1A;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        h1, p, a:not(.navbar a) {
+            text-align: center;
+            transition: color 0.3s ease;
+            color: white;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="http://127.0.0.1:5000/">Home</a>
+        <a href="http://127.0.0.1:5500/templates/about.html">About Us</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSctSWzu84PbTmro0wBsbw1B3jcLI7UmvKB9qDKkw-taEIdESA/viewform">Book an Appointment</a>
+    </div>
+
+    <div class="container">
+        <h1>Your Prescription</h1>
+        <p style="margin-bottom: 20px;">{{ result.query }}</p>
+        <p style="font-size: 20px; font-weight: bold; color: grey; margin-bottom: 20px;">Snippet:</p>
+        <p id="resultSnippet" style="margin-bottom: 20px;">{{ result.related_questions[0].snippet }}</p>
+        <p style="font-size: 20px; font-weight: bold; color: grey; margin-bottom: 20px;">Link:</p>
+        <a href="{{ result.related_questions[0].link }}" id="resultLink" target="_blank" style="margin-bottom: 20px;">{{ result.related_questions[0].link }}</a>
+        <audio controls autoplay style="display: block; margin: auto; padding-top: 20px;">
+            <source src="{{ url_for('static', filename='answer.mp3') }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        document.getElementById('returnButton').addEventListener('click', function() {
+            document.body.style.backgroundColor = '#00008B'; // Change background color to dark blue.
+        });
+
+        function shortenLink() {
+            const linkElement = document.getElementById('resultLink');
+            let linkText = linkElement.textContent || linkElement.innerText;
+            if (linkText.length > 10) {
+                linkText = linkText.substring(0, 10) + '...';
+                linkElement.textContent = linkText;
+            }
+        }
+
+        shortenLink();
+    </script>
+</body>
+</html>
