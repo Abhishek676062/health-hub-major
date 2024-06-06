@@ -12,6 +12,7 @@ def search_google(query):
         "engine": "google",
         "q": query,
         "google_domain": "google.com",
+        "device": "mobile",
         "device": "desktop",
         "api_key": api_key
     }
