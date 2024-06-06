@@ -1,133 +1,144 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Homely Doctor - HealthHub</title>
     <style>
-        :root {
-            --background-color: #0A0A0A;
-            --text-color: #D1D1D1;
-            --accent-color: #4A90E2;
-            --error-color: #FF1744;
-            --border-radius: 8px;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+      :root {
+        --background-color: #0a0a0a;
+        --text-color: #d1d1d1;
+        --accent-color: #4a90e2;
+        --error-color: #ff1744;
+        --border-radius: 8px;
+        --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: var(--font-family);
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
 
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            left: 0;
-            background-color: #333;
-            color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-            z-index: 1000;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 15px 20px;
-            transition: background-color 0.3s ease;
-        }
-        .navbar a:hover {
-            background-color: #555;
-        }
+      .navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        left: 0;
+        background-color: #333;
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        z-index: 1000;
+      }
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        transition: background-color 0.3s ease;
+      }
+      .navbar a:hover {
+        background-color: #555;
+      }
 
-        .container {
-            max-width: 600px;
-            margin: 50px auto 0 auto;
-            padding: 20px;
-            background-color: #1A1A1A;
-            border-radius: var(--border-radius);
-        }
+      .container {
+        max-width: 600px;
+        margin: 50px auto 0 auto;
+        padding: 20px;
+        background-color: #1a1a1a;
+        border-radius: var(--border-radius);
+      }
 
-        h1 {
-            color: var(--accent-color);
-        }
+      h1 {
+        color: var(--accent-color);
+      }
 
-        form, .error, button {
-            margin-top: 20px;
-        }
+      form,
+      .error,
+      button {
+        margin-top: 20px;
+      }
 
-        input[type="text"] {
-            width: 70%;
-            padding: 10px;
-            margin-right: 10px;
-            background-color: #333;
-            border: 1px solid #444;
-            border-radius: var(--border-radius);
-            color: var(--text-color);
-        }
+      input[type="text"] {
+        width: 70%;
+        padding: 10px;
+        margin-right: 10px;
+        background-color: #333;
+        border: 1px solid #444;
+        border-radius: var(--border-radius);
+        color: var(--text-color);
+      }
 
-        button {
-            background-color: var(--accent-color);
-            border: none;
-            padding: 10px 20px;
-            color: #FFFFFF;
-            cursor: pointer;
-            border-radius: var(--border-radius);
-            transition: background-color 0.3s ease;
-        }
+      button {
+        background-color: var(--accent-color);
+        border: none;
+        padding: 10px 20px;
+        color: #ffffff;
+        cursor: pointer;
+        border-radius: var(--border-radius);
+        transition: background-color 0.3s ease;
+      }
 
-        button:hover {
-            background-color: darken(var(--accent-color), 10%);
-        }
+      button:hover {
+        background-color: darken(var(--accent-color), 10%);
+      }
 
-        .error {
-            color: var(--error-color);
-        }
+      .error {
+        color: var(--error-color);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="navbar">
-        <a href="http://127.0.0.1:5000/">Home</a>
-        <a href="http://127.0.0.1:5500/templates/about.html">About Us</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSctSWzu84PbTmro0wBsbw1B3jcLI7UmvKB9qDKkw-taEIdESA/viewform">Book an Appointment</a>
+      <a href="/">Home</a>
+      <a href="./templates/about.html">About Us</a>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSctSWzu84PbTmro0wBsbw1B3jcLI7UmvKB9qDKkw-taEIdESA/viewform"
+        >Book an Appointment</a
+      >
     </div>
 
     <div class="container">
-        <h1>Your Homely Doctor - HealthHub</h1>
-        <form action="/search" method="GET">
-            <input type="text" id="query" name="query" placeholder="Enter your query">
-            <button type="submit">Search</button>
-        </form>
-        <button id="speechButton">Speak</button>
-        {% if error %}
-            <p class="error">{{ error }}</p>
-        {% endif %}
+      <h1>Your Homely Doctor - HealthHub</h1>
+      <form action="/search" method="GET">
+        <input
+          type="text"
+          id="query"
+          name="query"
+          placeholder="Enter your query"
+        />
+        <button type="submit">Search</button>
+      </form>
+      <button id="speechButton">Speak</button>
+      {% if error %}
+      <p class="error">{{ error }}</p>
+      {% endif %}
     </div>
 
     <script>
-        const speechButton = document.getElementById('speechButton');
-        const queryInput = document.getElementById('query');
+      const speechButton = document.getElementById("speechButton");
+      const queryInput = document.getElementById("query");
 
-        speechButton.addEventListener('click', () => {
-            const recognition = new window.webkitSpeechRecognition() || new window.SpeechRecognition();
+      speechButton.addEventListener("click", () => {
+        const recognition =
+          new window.webkitSpeechRecognition() ||
+          new window.SpeechRecognition();
 
-            recognition.start();
+        recognition.start();
 
-            recognition.onresult = function(event) {
-                const result = event.results[0][0].transcript;
-                queryInput.value = result;
-            };
+        recognition.onresult = function (event) {
+          const result = event.results[0][0].transcript;
+          queryInput.value = result;
+        };
 
-            recognition.onerror = function(event) {
-                console.error('Speech recognition error:', event.error);
-            };
-        });
+        recognition.onerror = function (event) {
+          console.error("Speech recognition error:", event.error);
+        };
+      });
     </script>
-</body>
+  </body>
 </html>
