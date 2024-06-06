@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Function to perform a Google search using the SERP API
 def search_google(query):
-    api_key = "YOUR GOOGLE SERP API KEY"
+    api_key = "eab3a4ff1eb26c3de63b0fc65dc266c4574acc21f4bf7db792a8dcbc3e319faf"
     params = {
         "engine": "google",
         "q": query,
@@ -58,7 +58,7 @@ def search():
         speak_answer(search_result["related_questions"][0]["snippet"])
         return render_template('result.html', result=search_result)
     else:
-        return render_template('index.html', error="No relevant data found.")
+        return render_template('index.html', error="For This query please book a appoientment with our partered Docters ")
 
 if __name__ == '__main__':
     app.run(debug=False)
